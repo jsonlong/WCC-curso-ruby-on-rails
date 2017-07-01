@@ -1,5 +1,25 @@
-<h1>Aqui estan todos los projectos</h1>
-
-<% @projects.each do |project| %>
-<p><%= project.name %></p>
-<% end %>
+<h1>Projects#index</h1>
+<p>Find me in app/views/projects/index.html.erb</p><table>
+ <thead>
+   <th>
+     <td>ID</td>
+     <td>Name</td>
+     <td>Created at</td>
+     <td></td>
+     <td></td>
+     <td></td>
+   </th>
+ </thead>
+ <tbody>
+   <% @projects.each do |project| %>
+     <tr>
+       <td><%= project.id %></td>
+       <td><%= project.name %></td>
+       <td><%= project.created_at %></td>
+       <td><%= link_to 'Show', project %></td>
+       <td><%= link_to 'Edit', edit_project_path(project) %></td>
+       <td><%= link_to 'Destroy', project_path(project), method: :delete, data: { confirm: 'Esta seguro compa?' } %></td>
+     </tr>
+   <% end %>
+ </tbody>
+</table><%= link_to 'Add project', new_project_path %>
